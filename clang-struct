@@ -1,0 +1,11 @@
+#!/bin/bash
+    
+PROJECT_ROOT="$( cd "$(dirname "$0")" ; pwd -P )"
+CLANG=$PROJECT_ROOT/clang/llvm-build/bin/clang
+PLUGIN=$PROJECT_ROOT/clang/plugin/build/plugin_struct.so
+
+$CLANG -Wno-everything -no-integrated-as -fsyntax-only -fno-diagnostics-color \
+       -Xclang -load -Xclang $PLUGIN -Xclang -add-plugin -Xclang print-struct  "$@"
+
+
+  

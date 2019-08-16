@@ -1,0 +1,1 @@
+qemu-system-x86_64 -enable-kvm -smp 4,sockets=1,cores=4,threads=1 -net user,hostfwd=tcp::2223-:22,hostfwd=tcp::2224-:80 -net nic -hda debian-testing.img -m 2G  -s -monitor tcp::2222,server,nowait -vga std
